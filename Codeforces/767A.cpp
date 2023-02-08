@@ -4,28 +4,61 @@ using namespace std;
 
 #define optimeze() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 
-int a[100005];
+
 int main()
 {
 
-    int n, c1 = 0, c2 = 0, mx = 0, mn = 1000000007;
-
+    int n, b, next;
     cin >> n;
+    next = n;
 
-    for ( int i = 0; i <  n; i++ )
+    vector< int > v( n );
+
+    for( int i = 1; i <= n; i++ )
     {
-        cin >> a[i];
-        mx = max(mx, a[i]), mn = min( mn, a[i]);
-    }
+        cin >> b;
+        v[b] = 1;
 
-    for( int i = 0; i < n; i++ )
-    {
-        if( a[i] == mx ) c1++;
-        if( a[i] == mn ) c2++;
-    }
+        while( v[next] == 1 )
+        {
+            cout << next << " ";
+            next--;
 
-    if( mx == mn ) cout << 0;
-    else cout << ( n - c1 - c2 );
+        }
+         cout << endl;
+    }
 
     return 0;
 }
+
+
+
+//using namespace std;
+//
+//int main() {
+//    int n;
+//    cin >> n;
+//
+//    vector <int > a(n);
+//    for (int i = 0; i < n; i++) {
+//        cin >> a[i];
+//    }
+//
+//    sort( a.begin(), a.end(), greater<int>());
+//
+//    stack<int> s;
+//    for (int i = 0; i < n; i++) {
+//        while (!s.empty() && s.top() > a[i]) {
+//            s.pop();
+//        }
+//        s.push(a[i]);
+////        cout << s.size() << " ";
+//        for (int j = 0; j < s.size(); j++) {
+//            cout << s.top() << " ";
+//            s.pop();
+//        }
+//        cout << endl;
+//    }
+//    return 0;
+//}
+

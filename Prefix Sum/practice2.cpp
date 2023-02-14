@@ -19,13 +19,12 @@ int main() {
         prefix_sum[i] = prefix_sum[i-1] + a[i];
     }
 
-    int l, r;
-    cin >> l >> r; // read left and right boundaries
-
-    // calculate sum of elements between l and r (inclusive)
-    int sum = prefix_sum[r] - (l == 0 ? 0 : prefix_sum[l-1]);
-
-    cout << "Sum of elements between " << l << " and " << r << ": " << sum << endl;
+    // output prefix sum
+    for (int i = 0; i < n; i++) {
+        cout << prefix_sum[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }
+

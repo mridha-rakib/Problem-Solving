@@ -1,23 +1,19 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <numeric> // for partial_sum algorithm
 using namespace std;
-
-const int MAXN = 100000; // maximum array size
 
 int main() {
     int n;
-    int a[MAXN], prefix_sum[MAXN];
-
     cin >> n; // read array size
 
+    vector<int> a(n), prefix_sum(n);
     for (int i = 0; i < n; i++) {
         cin >> a[i]; // read array element
     }
 
     // calculate prefix sum
-    prefix_sum[0] = a[0];
-    for (int i = 1; i < n; i++) {
-        prefix_sum[i] = prefix_sum[i-1] + a[i];
-    }
+    partial_sum(a.begin(), a.end(), prefix_sum.begin());
 
     int l, r;
     cin >> l >> r; // read left and right boundaries

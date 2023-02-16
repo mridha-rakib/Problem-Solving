@@ -11,20 +11,20 @@ public:
     vector<int> maxPrefixes(int a[], int L[], int R[], int N, int Q)
     {
 
-      vector<int> result;
+        vector<int> result;
 
-      for( int i = 0; i < Q; i++ )
-      {
-          int maxValue = INT_MIN;
-          int pre = 0;
+        for( int i = 0; i < Q; i++ )
+        {
+            int maxValue = INT_MIN;
+            int pre = 0;
 
-          for( int j = L[i]; j <= L[R]; j++ )
-          {
-              pre += a[j];
-              maxValue = max(maxValue, pre);
-          }
-          v.push_back(maxValue);
-      }
+            for(int j = L[i]; j <= R[i]; j++)
+            {
+                pre+=a[j];
+                maxValue = max(maxValue, pre);
+            }
+            result.push_back(maxValue);
+        }
 
         return result;
     }

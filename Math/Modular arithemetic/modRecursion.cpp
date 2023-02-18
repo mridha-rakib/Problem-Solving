@@ -6,12 +6,12 @@ ll bigmod( ll a, ll n, ll p )
 {
     if( n == 0 ) return 1;
 
-    if( n % 2 == 0 ) return a * bigmod ( a, n - 1 ) % m;
+    if( n % 2 == 1 ) return a * bigmod ( a, n - 1, p) % p;
     else{
-        int mid = n / 2;
-        ll v = bigmod( a, mid );
+        ll mid = n / 2;
+        ll v = bigmod( a, mid, p );
 
-        return v + v % m;
+        return v * v % p;
     }
 }
 
@@ -23,9 +23,9 @@ int main()
     while( t-- )
     {
         ll a, n, p;
-        cin >> a >> n >> p
+        cin >> a >> n >> p;
 
-        bigmod(a, n, p);
+       cout << bigmod(a, n, p) << endl;
     }
 
     return 0;

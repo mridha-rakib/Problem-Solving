@@ -3,45 +3,34 @@
 using namespace std;
 
 // } Driver Code Ends
-class Solution
-{
-public:
-    vector<int> duplicates(int arr[], int n)
-    {
+class Solution{
+  public:
+    vector<int> duplicates(int arr[], int n) {
         // code here
         unordered_map<int, int> count;
         vector<int> result;
-
-        for( int i = 0; i < n: i++ )
-        {
+        for (int i = 0; i < n; i++) {
             count[arr[i]]++;
         }
-
-        for( auto i : count )
-        {
-            if( i.second > 1 )
-                result.push_back(i.first);
+        for (auto it : count) {
+            if (it.second > 1) {
+                result.push_back(it.first);
+            }
         }
-
-        sort(result.begin(), result.end());
-
-        if( result.empty())
+        if (result.empty()) {
             result.push_back(-1);
-
+        }
+        sort(result.begin(), result.end());
         return result;
-
     }
-
 };
 
 
 //{ Driver Code Starts.
-int main()
-{
+int main() {
     int t;
     cin >> t;
-    while (t-- > 0)
-    {
+    while (t-- > 0) {
         int n;
         cin >> n;
         int a[n];

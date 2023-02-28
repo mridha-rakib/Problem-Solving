@@ -24,17 +24,17 @@ int main()
         int q;
         cin >> q;
 
-        while(q--)
+        while( q-- )
         {
             int x;
             cin >> x;
             int idx = lower_bound(arr, arr + n, x + 1) - arr;
-            lli sum = 0;
-            for( int i = idx; i < n; i++ )
+            int ans = 0;
+            for(int i = idx; i < n; i++)
             {
-                    sum += arr[i];
+                ans++;
             }
-            cout << sum << endl;
+            cout << ans << endl;
         }
 
     }

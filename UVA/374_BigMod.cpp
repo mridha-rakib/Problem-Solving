@@ -2,6 +2,8 @@
 using namespace std;
 #define ll long long
 
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
 ll bigmod( ll a, ll n, ll p )
 {
     if( n == 0 ) return 1;
@@ -18,7 +20,7 @@ ll bigmod( ll a, ll n, ll p )
 
 int main()
 {
-
+    optimize();
 
     ll a, n, p;
     while(cin >> a >> n >> p)

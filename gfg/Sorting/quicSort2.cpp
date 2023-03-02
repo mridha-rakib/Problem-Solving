@@ -15,7 +15,7 @@ void printArray(int arr[], int size)
 // } Driver Code Ends
 class Solution
 {
-    public:
+public:
     //Function to sort an array using quick sort algorithm.
     void quickSort(int arr[], int low, int high)
     {
@@ -28,23 +28,32 @@ class Solution
         }
     }
 
-    public:
+public:
     int partition (int arr[], int low, int high)
     {
-       // Your code here
-        int pivot = arr[high];
-        int i = low - 1;
+        int i = low, j = high;
+        int pvot = arr[low];
 
-        for(int j = low; j <= high - 1; j++)
+        while( i < j)
         {
-            if(arr[j] <= pivot)
+            while(arr[i] <= pvot)
             {
                 i++;
+            }
+
+            while(arr[j] > pvot )
+            {
+                j--;
+            }
+
+            if( i < j)
+            {
                 swap(arr[i], arr[j]);
             }
         }
-        swap(arr[i + 1], arr[high]);
-        return i + 1;
+        swap(arr[low], arr[j] );
+
+        return j;
     }
 };
 
@@ -54,13 +63,14 @@ int main()
 {
     int arr[1000],n,T,i;
     scanf("%d",&T);
-    while(T--){
-    scanf("%d",&n);
-    for(i=0;i<n;i++)
-      scanf("%d",&arr[i]);
-      Solution ob;
-    ob.quickSort(arr, 0, n-1);
-    printArray(arr, n);
+    while(T--)
+    {
+        scanf("%d",&n);
+        for(i=0; i<n; i++)
+            scanf("%d",&arr[i]);
+        Solution ob;
+        ob.quickSort(arr, 0, n-1);
+        printArray(arr, n);
     }
     return 0;
 }

@@ -5,26 +5,36 @@ using namespace std;
 // } Driver Code Ends
 class Solution
 {
-    public:
-        string UncommonChars(string A, string B)
+public:
+    string UncommonChars(string A, string B)
+    {
+        // code here
+        int freqA[26] = {0}, freqB[26] = {0};
+
+        // iterate over string A and update frequency array
+        for (char c : A)
+            freqA[c - 'a']++;
+
+        // iterate over string B and update frequency array
+        for (char c : B)
+            freqB[c - 'a']++;
+
+        // iterate over both strings to find uncommon characters
+        string ans = "";
+        for (int i = 0; i < 26; i++)
         {
-            // code here
-            string str = "";
-            for(int i = 0; i < A.length(); i++)
-            {
-                for(int j = 0; j < B.length(); j++)
-                {
-                    if(A[i] != B[j])
-                        str += A[i];
-                    if(B[j] != A[i])
-                        str += B[j];
-                }
-
-            }
-
-            sort(str.begin(), str.end());
-            return str;
+            if (freqA[i] == 0 && freqB[i] > 0)
+                ans += char(i + 'a');
+            else if (freqA[i] > 0 && freqB[i] == 0)
+                ans += char(i + 'a');
         }
+
+        // if no uncommon characters found, return "-1"
+        if (ans.length() == 0)
+            return "-1";
+
+        return ans;
+    }
 };
 
 

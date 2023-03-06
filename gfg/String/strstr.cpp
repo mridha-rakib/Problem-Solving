@@ -28,6 +28,11 @@ int strstr(string s, string x)
 {
     //Your code here
 
+//    size_t index = s.find(x);
+//    if (index != string::npos)
+//        return index;
+//    else return - 1;
+
     int index = -1;
     if( s.length() >= x.length())
     {

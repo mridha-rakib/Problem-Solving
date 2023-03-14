@@ -27,10 +27,11 @@ int main()
 
     while( i < n && j < m )
     {
-        if( abs (applicant[i] - apartment[j]) <= k ){
-            count ++, i++, j++;
+        if( abs (applicant[i] - apartment[j]) <= k )
+        {
+            count++, i++, j++;
         }
-        else if( applicant[i] - apartment [j] < k ) i++;
+        else if( applicant[i] - apartment [j] < k ) {i++, j++;}
         else j++;
     }
 

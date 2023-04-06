@@ -34,7 +34,7 @@ void sieve()
 void primeFactor( int n )
 {
     vector<int>result;
-    for ( int i = 0; primes[i] <= n; i++)
+    for ( int i = 0; primes[i] * primes[i] <= n; i++)
     {
         if (n % primes[i] == 0)
         {
@@ -45,6 +45,8 @@ void primeFactor( int n )
             }
         }
     }
+
+    if (n > 1) primes.push_back(n);
 
     for (int i = 0; i < result.size(); i++)
     {

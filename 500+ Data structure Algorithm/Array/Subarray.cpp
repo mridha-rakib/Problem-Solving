@@ -10,18 +10,22 @@ bool hasZeroSumSubarray( int nums[],  int n)
     for ( int  i = 0; i < n; i++ )
     {
         sum += nums[i];
+       //cout << sum << endl;
 
         if ( set.find(sum) != set.end())
         {
-            for ( auto it : set )
-            cout << it << " ";
+            cout << sum << " ";
             return true;
         }
         else
         {
+//            for ( auto it : set )
+//                cout << it << " ";
+        ///cout << sum <<" ";
             set.insert(sum);
         }
     }
+
     return false;
 }
 

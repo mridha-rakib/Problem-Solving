@@ -14,25 +14,45 @@ public:
     //Function to find maximum of each subarray of size k.
     vector <int> max_of_subarrays(int *arr, int n, int k)
     {
-        // your code here
-        int i=0,j=0;
-        vector<int> ans;
-        deque<int> q;
-        while(j<n)
+        vector<int>v;
+        deque<int>q;
+        int i;
+        for(i=0; i<k; i++)
         {
-            while(!q.empty() && q.back()<=arr[j]) q.pop_back();
-            q.push_back(arr[j]);
-            if(j-i+1==k)
+            while(!q.empty()&&arr[i]>arr[q.back()])
             {
-                ans.push_back(q.front());
-                if(arr[i]==q.front()) q.pop_front();
-                i++;
+                q.pop_back();
             }
-            j++;
+
+            q.push_back(i);
         }
-        return ans;
+
+//        deque<int>:: iterator it;
+//
+//        for ( it = q.begin(); it != q.end(); it++ )
+//            cout << *it << " it" << endl;
+
+        //for(;i<n;i++)//or
+        for(int i=k; i<n; i++)
+        {
+            v.emplace_back(arr[q.front()]);
+            //remove element which is not a part of the window
+            while(!q.empty()&&(q.front()<=i-k))
+            {
+                q.pop_front();
+            }
+            //remove the ele which is not essential
+            while(!q.empty()&&(arr[i]>=arr[q.back()]))
+            {
+                q.pop_back();
+            }
+            //add the element
+            q.push_back(i);
+        }
+        v.emplace_back(arr[q.front()]);
+        return v;
     }
-}
+
 };
 
 //{ Driver Code Starts.

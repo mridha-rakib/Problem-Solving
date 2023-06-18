@@ -1,17 +1,12 @@
-#include<bits/stdc++.h>
+include<bits/stdc++.h>
 using namespace std;
 
 #define DUMMY 0
 
 
-struct node
 {
     int value;
-    node* next;
-
-    node()
-    {
-        value = 0;
+    node0;
         next = nullptr;
     }
 
@@ -32,21 +27,13 @@ node* head = new node(DUMMY);
 
 void insert_at_tail(int value)
 {
-    if ( head == NULL )
-    {
-        head = new node ( value );
-        return;
-    }
-
-    node* tmp = new node ( value );
-
-    node* copy_head = head;
+    node* copy_head = head -> next;
 
     while ( copy_head -> next != nullptr )
     {
         copy_head = copy_head -> next;
     }
-    copy_head -> next = tmp;
+    copy_head -> next = new node( value );
 }
 
 void bulk_insert_at_tail( vector<int>list_of_element )
